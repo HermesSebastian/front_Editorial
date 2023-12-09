@@ -1,0 +1,64 @@
+<div class="col-lg-12">
+  <nb-card>
+    <nb-card-header *ngIf="modoCreacion">
+      CREAR AUTOR PUBLICACION
+    </nb-card-header>
+    <nb-card-header *ngIf="!modoCreacion">
+      ACTUALIZAR AUTOR PUBLICACION
+    </nb-card-header>
+    <nb-card-body>
+      <div class="row">
+        <div class="col-3">
+          <label>Volumen</label>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text" [disabled]="!modoCreacion" [(ngModel)]="elAutorpublicacion.volumen">
+          <p *ngIf="intentoEnvio && elAutorpublicacion.volumen === ''">Requerido</p>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-3">
+          <label>Descripcion</label>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text" [(ngModel)]="elAutorpublicacion.descripcion">
+          <p *ngIf="intentoEnvio && elAutorpublicacion.descripcion === ''">Requerido</p>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-3">
+          <label>Numero Paginas</label>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text" [(ngModel)]="elAutorpublicacion.numeropaginas">
+          <p *ngIf="intentoEnvio && elAutorpublicacion.numeropaginas === ''">Requerido</p>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-3">
+          <label>Autor</label>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text" [(ngModel)]="nombreAutorIngresado">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-3">
+          <label>Publicación</label>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text" [(ngModel)]="tituloPublicacionIngresado">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <button *ngIf="modoCreacion" class="btn btn-primary btn-block" (click)="agregar()">Crear</button>
+        <button *ngIf="!modoCreacion" class="btn btn-primary btn-block" (click)="editar()">Actualizar</button>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>

@@ -1,0 +1,62 @@
+<div class="col-lg-12">
+  <nb-card>
+    <nb-card-header *ngIf="modoCreacion">CREAR PUBLICACION</nb-card-header>
+    <nb-card-header *ngIf="!modoCreacion">ACTUALIZAR PUBLICACION</nb-card-header>
+    <nb-card-body>
+      <div class="row">
+        <div class="col-3">
+          <label>Titulo</label>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text" [disabled]="!modoCreacion" [(ngModel)]="lapublicacion.titulo">
+          <p *ngIf="intentoEnvio && lapublicacion.titulo">Requerido</p>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-3">
+          <label>ISBN</label>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text" [(ngModel)]="lapublicacion.isbn">
+          <p *ngIf="intentoEnvio && lapublicacion.isbn">Requerido</p>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-3">
+          <label>FECHA</label>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text" [(ngModel)]="lapublicacion.fecha">
+          <p *ngIf="intentoEnvio && lapublicacion.fecha">Requerido</p>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-3">
+          <label>PROGRAMA</label>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text" [(ngModel)]="lapublicacion.programa">
+          <p *ngIf="intentoEnvio && lapublicacion.programa">Requerido</p>
+        </div>
+      </div>
+      <br>
+      <!-- Nuevo campo para la carga de archivos -->
+      <div class="row">
+        <div class="col-3">
+          <label>Archivo</label>
+        </div>
+        <div class="col-9">
+          <input type="file" (change)="onFileSelected($event)">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <button *ngIf="modoCreacion" class="btn btn-primary btn-block" (click)="agregar()">Crear</button>
+        <button *ngIf="!modoCreacion" class="btn btn-primary btn-block" (click)="editar()">Actualizar</button>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>

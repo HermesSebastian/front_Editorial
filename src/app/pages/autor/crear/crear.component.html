@@ -1,0 +1,80 @@
+<div class="col-lg-12">
+  <nb-card>
+    <nb-card-header *ngIf="modoCreacion"> CREAR AUTOR </nb-card-header>
+    <nb-card-header *ngIf="!modoCreacion">
+      ACTUALIZAR AUTOR
+    </nb-card-header>
+    <nb-card-body>
+      
+      <br />
+      <div class="row">
+        <div class="col-3">
+          <label>Nombres</label>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text"
+            [(ngModel)]="elAutor.nombres">
+          <p *ngIf="intentoEnvio && elAutor.nombres == ''">Requerido</p>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-3">
+          <label>Apellidos</label>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text"
+            [(ngModel)]="elAutor.apellidos">
+          <p *ngIf="intentoEnvio && elAutor.apellidos == ''">Requerido</p>
+        </div>
+      </div>
+
+      <br />
+      <div class="row">
+        <div class="col-3">
+          <label>Direción</label>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text"
+            [(ngModel)]="elAutor.direccion">
+          <p *ngIf="intentoEnvio && elAutor.direccion== ''">Requerido</p>
+        </div>
+      </div>
+
+      <br />
+      <div class="row">
+        <div class="col-3">
+          <label>Nivel Academico</label>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text"
+            [(ngModel)]="elAutor.nivelacademico">
+          <p *ngIf="intentoEnvio && elAutor.nivelacademico== ''">Requerido</p>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-3">
+          <label>Correo Electronico</label>
+        </div>
+        <div class="col-9">
+          <input class="form-control" type="text"
+            [(ngModel)]="elAutor.correoelectronico">
+          <p *ngIf="intentoEnvio && elAutor.correoelectronico== ''">Requerido</p>
+        </div>
+      </div>
+      
+      <br/>
+      <div class="row">
+            <button *ngIf="modoCreacion"
+                     class="btn btn-primary btn- block" (click)="agregar()">
+                Crear
+            </button>
+            <button *ngIf="!modoCreacion"
+                    class="btn btn-primary btn- block" (click)="editar()">
+                Actualizar
+            </button>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>

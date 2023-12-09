@@ -1,0 +1,31 @@
+<div class="col-lg-12">
+    <nb-card>
+      <nb-card-header>ADMINISTRACIÓN PUBLICACIONES
+        <button type="button" class="btn btn-success" (click)="agregar()">
+          <i class="fas fa-plus"></i>
+        </button>
+      </nb-card-header>
+      <table class="table">
+        <tr>
+          <th *ngFor="let columnaActual of nombresColumnas">{{columnaActual}}</th>
+        </tr>
+        <ng-container *ngFor="let publicacionActual of publicacion">
+          <tr>
+            <td>{{publicacionActual.titulo}}</td>
+            <td>{{publicacionActual.isbn}}</td>
+            <td>{{publicacionActual.fecha}}</td>
+            <td>{{publicacionActual.programa}}</td>
+            <td>
+              <button type="button" class="btn btn-primary" (click)="editar(publicacionActual._id)">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button type="button" class="btn btn-danger" (click)="eliminar(publicacionActual._id)">
+                <i class="fas fa-solid fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </table>
+    </nb-card>
+  </div>
+  
